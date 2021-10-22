@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Interview Practice</title>
+</head>
+
+<body>
+    <!-- QUESTION 1-->
+
+    <h3>1) Create a counter with two buttons, one for increament and one for decreament.</h3>
+    <p id="counter-text">0</p>
+    <button id="increament">+</button>
+    <button id="decreament">-</button>
+
+    <script>
+        let counterValue = document.querySelector("#counter-text");
+        let increament = document.querySelector("#increament");
+        let decreament = document.querySelector("#decreament");
+
+        increament.addEventListener("click", function increase() {
+            let newValue = Number(counterValue.innerText);
+            counterValue.innerText = newValue + 1;
+        });
+
+        decreament.addEventListener('click', () => {
+            let newValue = Number(counterValue.innerText);
+            counterValue.innerText = newValue - 1;
+        });
+    </script>
+    <hr>
+
+
+    <!-- QUESTION 2 -->
+    <h3>2) The user will not be able to add more characters after a certain limit has been reached</h3>
+    <textarea id="input-box" type="text" maxlength="20" cols="40" rows="10"></textarea>
+    <button id="submit">Submit</button>
+
+    <script>
+        let input = document.querySelector("#input-box");
+        let checkBtn = document.querySelector("#submit");
+        checkBtn.disabled = true;
+
+        input.addEventListener('change', function inputHandler() {
+            if (input.value === "") {
+                checkBtn.disabled = true;
+            } else {
+                checkBtn.disabled = false;
+            }
+        });
+    </script>
+    <hr>
+
+
+    <!-- QUESTION 3 -->
+    <h3>Fetch the API and display the results.</h3>
+    <div id="output"></div>
+    <button id="get-data">Fetch</button>
+
+    <script>
+        let output = document.querySelector("#output");
+        let getData = document.querySelector("#get-data");
+        let url = "https://jsonplaceholder.typicode.com/todos";
+
+
+        getData.addEventListener("click", function fetchUrl() {
+            fetch(url)
+                .then((res) => {
+                    // console.log(res)
+                    return res.json()
+                })
+                .then((data) => {
+                    // console.log(data);
+                    let result = "";
+                    output.innerHTML = data
+                        .map((dat) => {
+                            result += `<p> Title: ${dat.title}</p> 
+                            <p> Completed: ${dat.completed}</p>`;
+                            return result;
+                        })
+                        .join("")
+                });
+        })
+    </script>
+    <hr>
+
+</body>
+
+</html>
