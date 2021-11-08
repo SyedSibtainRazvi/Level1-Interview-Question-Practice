@@ -57,7 +57,7 @@
 
 
     <!-- QUESTION 3 -->
-    <h3>Fetch the API and display the results.</h3>
+    <h3>3) Fetch the API and display the results.</h3>
     <div id="output"></div>
     <button id="get-data">Fetch</button>
 
@@ -87,6 +87,87 @@
         })
     </script>
     <hr>
+
+    <!-- QUESTION 4 -->
+    <h3>4) Create a password checker web app. If password is less than 10 characters then show an error to user
+        otherwise show success.</h3>
+    <input type="text" id="pass-input">
+    <button id="check-btn">Check</button>
+    <div id="output-box"></div>
+
+    <script>
+        let inputBox = document.querySelector("#pass-input");
+        let button = document.querySelector("#check-btn");
+        let outputBox = document.querySelector("#output-box");
+        button.disabled = true;
+
+        function clickHandler() {
+            let value = inputBox.value
+            if (value.length > 10) {
+                outputBox.innerText = "Success"
+            } else {
+                outputBox.innerText = "Error"
+            }
+        }
+        button.addEventListener('click', clickHandler)
+
+        function btnHandler() {
+            let value = inputBox.value
+            if (value.length > 10) {
+                button.disabled = false;
+            } else {
+                button.disabled = true;
+
+            }
+        }
+        inputBox.addEventListener('input', btnHandler)
+    </script>
+    <hr>
+
+    <!-- QUESTION 5 -->
+    <h3>Create a web app and render your name using any heading or paragraph tag. It should have a border of 1px around
+        it. Create 2 buttons, '5px' and '10px' below your name. The width of border should change to 5px and 10px by
+        clicking respective buttons.</h3>
+
+    <style>
+        p {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+
+    <p id="text">Syed Sibtain</p>
+    <button id="five">5px</button>
+    <button id="ten">10px</button>
+
+    <div id="resultop"></div>
+
+    <script>
+        let text = document.querySelector("#text");
+        let five = document.querySelector("#five");
+        let ten = document.querySelector("#ten");
+        let resultop = document.querySelector("#resultop");
+
+
+
+        let URL = "https://quick-access-api.desaihetav.repl.co/";
+
+        five.addEventListener('click', function fivepx() {
+            text.style.border = "solid 5px"
+        })
+
+        ten.addEventListener('click', function tenpx() {
+            text.style.border = "solid 10px"
+        })
+
+        fetch(URL)
+            .then(res => res.json())
+            .then(data => {
+                resultop.innerHTML = data.message;
+            })
+    </script>
+
+
 
 </body>
 
