@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Interview Practice</title>
+</head>
+
+<body>
+    <!-- QUESTION 7-->
+    <h3>7) This API link can give two errors, either 404, or 401.
+        If the error is 404, show the user 'page not found' and if the error is 401, show the user
+        'you are not logged in'. </h3>
+
+    <div id="output-api"></div>
+
+    <script>
+        let outputAPI = document.querySelector("#output-api")
+
+        let URL = "https://mystery-api.kushanksriraj.repl.co/get";
+
+        fetch(URL)
+            .then(data => {
+                console.log(data.status)
+                // return data.status;
+                if (data.status === 404) {
+                    outputAPI.innerText = "Page Not Found";
+                } else if (data.status === 401) {
+                    outputAPI.innerText = "User Not Logged In";
+                } else if (data.status === 200) {
+                    outputAPI.innerText = "API is working";
+                }
+            })
+    </script>
+    <hr>
+
+    <!-- QUESTION 8-->
+    <h3>8) Create a web app, where I input my name, and then I input a password.
+        If the password contains the input name in it, show an error message "Password can't have name"
+    </h3>
+
+    <input type="text" id="user-name">
+    <input type="text" id="user-password">
+
+    <button id="check-password">Check</button>
+    <div id="output-password"></div>
+
+    <script>
+        let userName = document.querySelector('#user-name');
+        let userPass = document.querySelector('#user-password');
+        let btnCheck = document.querySelector('#check-password');
+        let outputPass = document.querySelector('#output-password');
+
+        btnCheck.addEventListener('click', function validate() {
+            if (userPass.value.includes(userName.value)) {
+                outputPass.innerText = "Choose another password"
+            } else {
+                outputPass.innerText = "Password is correct"
+            }
+        })
+    </script>
+
+
+
+
+</body>
+
+</html>

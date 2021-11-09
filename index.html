@@ -125,7 +125,8 @@
     <hr>
 
     <!-- QUESTION 5 -->
-    <h3>Create a web app and render your name using any heading or paragraph tag. It should have a border of 1px around
+    <h3>5) Create a web app and render your name using any heading or paragraph tag. It should have a border of 1px
+        around
         it. Create 2 buttons, '5px' and '10px' below your name. The width of border should change to 5px and 10px by
         clicking respective buttons.</h3>
 
@@ -166,7 +167,62 @@
                 resultop.innerHTML = data.message;
             })
     </script>
+    <hr>
 
+    <!-- QUESTION 6 -->
+    <h3>6) Take an input from the user in text format.
+        Have 3 buttons with the names of "Log" ,"Warn" and "Error".
+        If user clicks on "Log" button then the text entered by user will be shown in black color.
+        Similarly if the user clicks on "Warn " and "Error " buttons then the text entered by user will be shown on the
+        screen in the yellow and red colors respectively.</h3>
+
+    <input id="text2" type="text">
+    <button id="log">Log</button>
+    <button id="warn">Warn</button>
+    <button id="error">Error</button>
+
+    <div id="display2"></div>
+
+    <Script>
+        let userInput = document.querySelector("#text2");
+
+        let log = document.querySelector("#log");
+        let warn = document.querySelector("#warn");
+        let error = document.querySelector("#error");
+
+        log.addEventListener('click', function log() {
+            // display2.innerText = userInput.value;
+            // display2.style.color = "black";
+
+            displayResult()
+            displayColor("black");
+        });
+
+        warn.addEventListener('click', function warn() {
+            // display2.innerText = userInput.value;
+            // display2.style.color = "yellow"
+
+            displayResult();
+            displayColor("yellow");
+        });
+
+        error.addEventListener('click', function warn() {
+            // display2.innerText = userInput.value;
+            // display2.style.color = "red";
+
+            displayResult();
+            displayColor("red")
+        });
+
+
+        function displayResult() {
+            display2.innerText = userInput.value;
+        }
+
+        function displayColor(color) {
+            display2.style.color = color;
+        }
+    </Script>
 
 
 </body>
