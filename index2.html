@@ -175,27 +175,43 @@
     <input type="text" id="input-user-otp">
     <button id="otp-button">Generate OTP</button>
 
+    <input type="text" id="validate-otp">
+    <button id="validate-button">Validate OTP</button>
+
     <div id="output-otp"></div>
 
     <script>
         let userNameOtp = document.querySelector("#input-user-otp");
         let generateOtp = document.querySelector("#otp-button");
-
-
+        let validateOtp= document.querySelector("#validate-otp");
+        let validateBtn= document.querySelector("#validate-button");
         let outputOtp = document.querySelector("#output-otp");
 
-        let userNameText = userNameOtp.value;
-        let urlOtp = "https://otpgenerator.ishanjirety.repl.co/get-otp?name="
-
-        let finalUrl = urlOtp + userNameText;
-
         generateOtp.addEventListener("click", function generateOtp() {
-                    fetch(finalUrl)
-                        .then(res => res.json())
-                        .then(data => {
-                            console.log(data)
-                        })
-                });
+            let urlOtp = "https://otpgenerator.ishanjirety.repl.co/get-otp?name="
+            let userNameText = userNameOtp.value;
+            let finalUrl = urlOtp + userNameText;
+            fetch(finalUrl)
+                .then((res) => {
+                    console.log(res)
+                    return res.json()
+                })
+                .then((data) => {
+                    outputOtp.innerText = data.otp;
+                })
+        });
+
+            validateBtn.addEventListener('click', ()=> {
+                if (outputOtp.innerText === validateOtp.value){
+                    outputOtp.innerText = "Success"
+                    outputOtp.style.color = "Green"
+                } else {
+                    outputOtp.innerText = "Fail"
+                    outputOtp.style.color = "Red"
+
+                }
+            })
+
     </script>
 
 
