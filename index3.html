@@ -51,7 +51,42 @@
 
         isPrime(225);
         isPrime(5)
+
+        // We can optimize it, after 3 we can do +2 instead of +1, as if the number is divisible by 2, it will be divisible any even number. 
     </script>
+
+    <p>2) Fibonacci Series Vanilla Js</p>
+    <input type="number" id="fibonacci" placeholder="Enter number">
+    <button id="check-fibo"> Check Fibo</button>
+    <p id="fibo-out"></p>
+
+    <script>
+        let fiboNum = document.querySelector("#fibonacci");
+        let fiboCheck = document.querySelector("#check-fibo");
+        let series = document.querySelector("#fibo-out");
+
+        fiboCheck.addEventListener('click', checkFibo);
+
+
+        function checkFibo(){
+        let n1 = 0,
+            n2 = 1,
+            nextTerm;
+
+        for (let i = 1; i <= fiboNum; i++) {
+            // series.innerHTML = n1;
+            console.log(n1);
+            nextTern = n1 + n2;
+            n1 = n2;
+            n2 = nextTerm;
+
+        }
+    }
+    </script>
+
+
+
+
 </body>
 
 </html>
