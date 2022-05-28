@@ -1,32 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <p>1) Prime Number Test Vanilla Js</p>
-    <input type="number" id="prime-number" placeholder="Type number">
+    <input id="prime-number" placeholder="Type number">
     <button id="prime-check"> Check Prime</button>
 
     <script>
         let primeNum = document.querySelector("#prime-number");
         let primeCheck = document.querySelector("#prime-check");
 
-        primeCheck.addEventListener('click', primeHandler = () => {
+        primeCheck.addEventListener('click', primeHandler);
+
+        function primeHandler() {
             let divisor = 2;
 
-            while( primeNum > 2){
-                if(primeNum % divisor == 0) {
-                    console.log("Not a prime");
-                }
-                else 
-                divisor = divisor + 1;
+            while (primeNum > divisor) {
+                if (primeNum % divisor == 0) {
+                    return console.log("False");
+
+                } else
+                    divisor++;
             }
-            console.log("Prime"); 
-        })
+            return console.log("True");
+
+        }
+    </script>
+
+    <!-- Solution -->
+    <script>
+        function isPrime(n) {
+            let divisor = 2;
+
+            while (n > divisor) {
+                if (n % divisor == 0) {
+                    return console.log("False");
+
+                } else
+                    divisor++;
+            }
+            return console.log("True");
+        }
+
+        isPrime(225);
+        isPrime(5)
     </script>
 </body>
+
 </html>
