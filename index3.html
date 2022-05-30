@@ -74,7 +74,7 @@
                 n2 = 1,
                 nextTerm;
 
-                let number = fiboNum.value;
+            let number = fiboNum.value;
 
 
             for (let i = 1; i <= number; i++) {
@@ -102,9 +102,39 @@
         // }
     </script>
 
+    <p>3) Prime number Vanilla Js (2nd method) </p>
+
+    <input id="prime-number2" placeholder="Type number">
+    <button id="prime-check2"> Check Prime</button>
+
+    <script>
+        let primeNum2 = document.querySelector("#prime-number2");
+        let primeCheck2 = document.querySelector("#prime-check2");
 
 
+        primeCheck2.addEventListener("click", primeHandler2);
 
-</body>
+        function primeHandler2() {
+            let isAPrime = true;
+            primeN = primeNum2.value;
 
-</html>
+            if (primeN === 1) {
+                console.log("1 is not prime, neither composite")
+            } else if (primeN > 1) {
+                for (let i = 2; i < primeN; i++) {
+                    if (primeN % i == 0) {
+                        isAPrime = false;
+                        break;
+                    }
+                }
+                if (isAPrime) {
+                    console.log(`${primeN} is a prime number`);
+                } else {
+                    console.log(`${primeN} is a not prime number`);
+                }
+            } else {
+                console.log(" Not a prime number")
+            }
+
+        }
+    </script>
