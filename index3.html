@@ -138,3 +138,65 @@
 
         }
     </script>
+
+    <p>4) Check if last digit is same </p>
+
+    <!-- 7,47,77 -->
+    <script>
+        // const a = prompt('Enter a first number');
+        // const b = prompt('Enter a  second number');
+        // const c = prompt('Enter a third number');
+
+        const result1 = a % 10;
+        const result2 = b % 10;
+        const result3 = c % 10;
+
+        if (result1 == result2 && result1 == result3) {
+            console.log("Last Digits are same")
+        } else {
+            console.log("Not same");
+        }
+    </script>
+
+    <p> 5) Swap numbers </p>
+
+    <input type="number" placeholder="First number" id="first-number">
+    <input type="number" placeholder="Second number" id="second-number">
+
+    <button id="swap"> Swap</button>
+
+    <script>
+        let firstNumber = document.querySelector("#first-number");
+        let secondNumber = document.querySelector("#second-number");
+
+        let swapBtn = document.querySelector("#swap");
+
+        let p = firstNumber.value;
+        let q = secondNumber.value;
+        let helper;
+
+        swapBtn.addEventListener("click", swapHandler)
+
+        function swapHandler() {
+            helper = p;
+            p = q;
+            q = helper;
+
+
+            console.log(p);
+            console.log(q);
+
+            //       let firstNum = prompt("Enter first Num");
+            //   let SecondNum = prompt("Enter Second Num");
+
+            //   let helper;
+
+            //   helper = firstNum;
+            //   firstNum = SecondNum;
+            //   SecondNum = helper;
+
+            //   console.log(firstNum);
+            //   console.log(SecondNum);
+
+        }
+    </script>
