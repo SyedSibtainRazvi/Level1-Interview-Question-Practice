@@ -17,9 +17,7 @@
         let factNum = document.querySelector("#factorial");
         let factorialBtn = document.querySelector("#factorial-btn");
 
-        factorialBtn.addEventListener("click", factorialHandler);
-
-        function factorialHandler() {
+        factorialBtn.addEventListener("click", factorialHandler = () => {
             let factNumValue = factNum.value;
             if (factNumValue < 0) {
                 console.log("Factorial for negative number does not exist");
@@ -31,9 +29,8 @@
                     fact *= i
                 }
                 console.log(fact);
-
             }
-        }
+        })
     </script>
 
 </body>
