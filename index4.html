@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>1) Factorial</p>
+    <input type="number" id="factorial" placeholder="Enter Number" />
+    <button id="factorial-btn">Factorial</button>
+
+    <script>
+        let factNum = document.querySelector("#factorial");
+        let factorialBtn = document.querySelector("#factorial-btn");
+
+        factorialBtn.addEventListener("click", factorialHandler);
+
+        function factorialHandler() {
+            let factNumValue = factNum.value;
+            if (factNumValue < 0) {
+                console.log("Factorial for negative number does not exist");
+            } else if (factNumValue === 0) {
+                console.log("The factorial of 0 is 1");
+            } else {
+                let fact = 1
+                for (let i = 1; i <= factNumValue; i++) {
+                    fact *= i
+                }
+                console.log(fact);
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
