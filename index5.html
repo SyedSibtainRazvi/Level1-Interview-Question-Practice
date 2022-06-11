@@ -44,19 +44,30 @@
             else
                 return '';
         }
-        console.log(repeatString("Sibtain", 5));
+        console.log(repeatString("Sibtain ", 5));
     </script>
 
     <p>Ternary method</p>
     <script>
         function repeatString(string, times) {
-             return times > 0 ? string.repeat(times) : "";
+            return times > 0 ? string.repeat(times) : "";
         }
-        console.log(repeatString("Cosmos", 4));
-
-
-
+        console.log(repeatString("Cosmos ", 4));
     </script>
+
+    <p>Loop method</p>
+    <script>
+        function repeatLoopMethod(string, times){
+            let repeatedString = "";
+            while (times > 0){
+                repeatedString = repeatedString + string;
+                times--;
+            }
+            return repeatedString;
+        }
+        console.log(repeatLoopMethod("Sid ", 10));
+    </script>
+
 
 </body>
 
