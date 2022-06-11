@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <p>Reverse a string</p>
     <script>
-        function reverseString(str){
-        
+        function reverseString(str) {
+
             let splitStr = str.split('');
             let revStr = splitStr.reverse();
             let joinArr = revStr.join("");
@@ -18,10 +20,44 @@
         }
 
         console.log(reverseString("Hello"));
-
-      
-        
     </script>
-    
+
+    <p>Second method</p>
+
+    <script>
+        function reverseStringWithLoop(string) {
+            let newString = "";
+
+            for (let i = string.length - 1; i >= 0; i--) {
+                newString = newString + string[i]
+            }
+            return newString;
+        }
+        console.log(reverseStringWithLoop("Sibtain"));
+    </script>
+
+    <p>Repeat String</p>
+    <script>
+        function repeatString(string, times) {
+            if (times > 0)
+                return string.repeat(times)
+            else
+                return '';
+        }
+        console.log(repeatString("Sibtain", 5));
+    </script>
+
+    <p>Ternary method</p>
+    <script>
+        function repeatString(string, times) {
+             return times > 0 ? string.repeat(times) : "";
+        }
+        console.log(repeatString("Cosmos", 4));
+
+
+
+    </script>
+
 </body>
+
 </html>
